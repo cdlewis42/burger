@@ -25,6 +25,28 @@ function objToSql(ob) {
   return arr.toString();
 }
 
-
+var orm = {
+  selectAll: function(tableInput, cb){
+    var queryString = "SELECT * FROM ??"
+    connection.query(queryString,[tableInput], function(err,result){
+      if (err) throw err
+      cb(result)
+    })
+  },
+  updateOne: function(table, columnName, condition, cb){
+    var queryString = "UPDATE ?? SET ?? WHERE ?? = ?"
+    connection.query(queryString,[table,columnName, condition], function(err,result){
+      if (err) throw err
+      cb(result)
+    })
+  },
+  createOne: function(tableInput, columnName, value, cb){
+    var queryString = "INSERT INTO ?? (??) VALUES(??)"
+    connection.query(queryString,[tableInput,columnName, value], function(err,result){
+      if (err) throw err
+      cb(result)
+    })
+  }
+}
 
 module.exports = orm;

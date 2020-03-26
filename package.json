@@ -4,15 +4,24 @@
   "description": "-Node \r -Express \r -MySQL \r -Handlebars \r -Jquery",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3",
-    "express-handlebars": "^3.0.0",
     "dotenv": "^8.2.0",
-    "mysql": "^2.16.0"
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "mysql": "^2.18.1"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cdlewis42/burger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cdlewis42/burger/issues"
+  },
+  "homepage": "https://github.com/cdlewis42/burger#readme"
 }
