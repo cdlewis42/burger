@@ -27,21 +27,21 @@ function objToSql(ob) {
 
 var orm = {
   selectAll: function(tableInput, cb){
-    var queryString = "SELECT * FROM ??"
+    var queryString = "SELECT * FROM " + tableInput
     connection.query(queryString,[tableInput], function(err,result){
       if (err) throw err
       cb(result)
     })
   },
-  updateOne: function(table, columnName, condition, cb){
-    var queryString = "UPDATE ?? SET ?? WHERE ?? = ?"
-    connection.query(queryString,[table,columnName, condition], function(err,result){
+  updateOne: function(table, objColVals, condition, cb){
+    var queryString = "UPDATE " + table + " SET " +  objToSql(objColVals) + " WHERE " + condition
+    connection.query(queryString,[table, objColVals, condition], function(err,result){
       if (err) throw err
       cb(result)
     })
   },
-  createOne: function(tableInput, columnName, value, cb){
-    var queryString = "INSERT INTO ?? (??) VALUES(??)"
+  createOne: function(tableInput, cols, vals, cb){
+    var queryString = "INSERT INTO " + tableInput + "(" + cols.toString() +") VALUES (" + printQuestionMarks(vals.length) + ")"
     connection.query(queryString,[tableInput,columnName, value], function(err,result){
       if (err) throw err
       cb(result)

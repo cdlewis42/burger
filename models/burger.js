@@ -6,11 +6,15 @@ var burger = {
         })
     },
      updateOne: function(cb){
-         orm.updateOne("burgers", "burger_name", "id")
+         orm.updateOne("burgers", "burger_name", "id", function(res){
+             cb(res)
+         })
      },
      createOne: function(cb){
-         orm.createOne("burgers","burger_name", "devoured")
-     }
+         orm.createOne("burgers","burger_name", "devoured",function(res){
+             cb(res)
+         })
+}
 }
 
 module.exports = burger;
