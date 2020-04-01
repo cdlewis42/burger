@@ -40,9 +40,9 @@ var orm = {
       cb(result)
     })
   },
-  createOne: function(tableInput, columnName, value, cb){
+  createOne: function(tableInput, columnName, values, cb){
     var queryString = "INSERT INTO ?? (??, ??) VALUES (?, ?)"
-    connection.query(queryString,[tableInput,columnName[0],columnName[1], value[0], value[1]], function(err,result){
+    connection.query(queryString,[tableInput,columnName[0],columnName[1], values[0], values[1]], function(err,result){
       if (err) throw err
       cb(result)
     })

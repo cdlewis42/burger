@@ -5,7 +5,7 @@ var burger = {
             cb(res)
         })
     },
-     updateOne: function(cb){
+     updateOne: function(id, cb){
          orm.updateOne("burgers", ["devoured", "id"], [true,id],function(res){
              cb(res)
          })
