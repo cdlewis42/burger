@@ -15,8 +15,7 @@ router.get("/", function(req, res) {
 // post route -> back to index
 router.post("/api/burgers", function(req, res) {
   var newBurger = req.body.burger_name
-  burger.createOne(
-    newBurger,function(data){
+  burger.createOne(newBurger,function(data){
       res.redirect("/")
     } 
   )
